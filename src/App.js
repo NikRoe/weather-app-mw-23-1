@@ -28,7 +28,13 @@ function App() {
       }
     }
 
-    getWeather();
+    const id = setInterval(() => {
+      getWeather();
+    }, 5000);
+
+    return () => {
+      clearInterval(id);
+    };
   }, []);
 
   function handleAddActivity(newActivity) {
