@@ -1,4 +1,4 @@
-export default function List({ activities, isGoodWeather }) {
+export default function List({ activities, isGoodWeather, onDeleteActivity }) {
   return (
     <>
       <h2>
@@ -8,7 +8,10 @@ export default function List({ activities, isGoodWeather }) {
       </h2>
       <ul>
         {activities.map((activity) => (
-          <li key={activity.id}>{activity.name}</li>
+          <li key={activity.id} onClick={() => onDeleteActivity(activity.id)}>
+            {activity.name}
+            <button type="button">X</button>
+          </li>
         ))}
       </ul>
     </>
